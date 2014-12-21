@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Selecting your car engine type</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Selecting your car engine type">
+  <meta name="author" content="d1m2r3">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Selecting your car engine type</h1>
+    <h2>Project for Developing Data Products - Coursera</h2>
+    <p>d1m2r3<br/>Active learner</p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>The impact of number of cylinders</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li>When selecting a car, we get carried away by sales-speak about the number of cylinders</li>
+<li>But, do we understand how the number of cylinders affect us?</li>
+<li>The number of cylinders in the  car engine impacts fuel economy and power</li>
+<li>More cylinders in the engine mean more power, but  fewer miles per gallon</li>
+<li>Now, we will see this trade-off, based on real data!<br></li>
+</ol>
+
+<p>Here is the heart of the server calculation</p>
+
+<pre><code class="r">data(mtcars)
+n1 &lt;- 4 #Set it to the value input by the user
+m1 &lt;- mtcars[mtcars$cyl == n1,]; #Select all rows that have &quot;n1&quot; cylinders
+mean(m1$mpg); mean(m1$hp)  #The subset data frame m1 is reactive
+</code></pre>
+
+<pre><code>## [1] 26.66364
+</code></pre>
+
+<pre><code>## [1] 82.63636
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>A simple application  on &quot;mtcars&quot; dataset of R</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li>RStudio contains a simple, small dataset &quot;mtcars&quot; on the performance of cars</li>
+<li>A very useful, compact data set of about 11 parameters of car performance, for 32 types of cars</li>
+<li>We will quantitavely study how  average fuel economy and power vary with number of cyliders</li>
+<li>I have developed a simple application that tells you the mileage and power for a given number of cylinders</li>
+<li>Developed with &quot;shiny&quot; package of RStudio</li>
+<li>No programming for you, just go ahead and use!</li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>How to use this application</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li>I hope you know how to start up RStudio, and copy files to your current directory</li>
+<li>Copy the &quot;ui.R&quot; and &quot;server.R&quot; files to your current directory in RStudio</li>
+<li>Ensure that the &quot;shiny&quot; package is installed under RStudio</li>
+<li>Just issue the command &quot;runApp()&quot;; use &quot;runApp(display.mode = &quot;showcase&quot;)&quot; if you want to see the code too!</li>
+<li>You will see a browser window open from RStudio; the text should be self-explanatory</li>
+<li>Just  enter the number of cylinders (4, 6, or 8) in the box provided, and out come the 
+average miles per gallon and horse power</li>
+<li>It is that simple!</li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Application design (if you are interested)</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li>This shiny app closely follows the instructions in the Coursera &quot;Developing Data Products &quot; lectures</li>
+<li>The R script &quot;ui.R&quot;, collects the basic input (number of cylinders), and feeds it 
+the &quot;server.R&quot; script, and displays the results given by server.R</li>
+<li>The R script &quot;server.R&quot; does the bulk of the work; it loads the &quot;mtcars&quot; data,
+and subsets its once on the number of cylinders chosen by the user.</li>
+<li>It calculates the average fuel economy (mpg) and power (hp), for all car types with the given number of cylinders</li>
+<li>The script &quot;server.R&quot; uses a reactive response, so that the mtcars data frame is accessed only once for both mpg and power calculation</li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='The impact of number of cylinders'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='A simple application  on &quot;mtcars&quot; dataset of R'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='How to use this application'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Application design (if you are interested)'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
